@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 function ProfilePage() {
   
   const [isLogging, setIsLogging] = useState(false)
-  console.log(isLogging);
+  
   return (
     <div className="profilePage">
       <div className="details">
@@ -58,9 +58,16 @@ function ProfilePage() {
         </motion.div>
       </div>
       <div className="chatContainer">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.9 }}
+        exit={{ opacity: 0 }}
+      >
         <div className="wrapper">
           <Chat />
         </div>
+        </motion.div>
       </div>
     </div>
   );

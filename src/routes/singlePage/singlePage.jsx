@@ -7,14 +7,13 @@ import { motion } from "framer-motion";
 function SinglePage() {
   return (
     <div className="singlePage">
-
-        <div className="details">
+      <div className="details">
         <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.9 }}
-        exit={{ opacity: 0 }}
-      >
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9 }}
+          exit={{ opacity: 0 }}
+        >
           <div className="wrapper">
             <Slider images={singlePostData.images} />
             <div className="info">
@@ -35,9 +34,15 @@ function SinglePage() {
               <div className="bottom">{singlePostData.description}</div>
             </div>
           </div>
-          </motion.div>
-        </div>
-        <div className="features">
+        </motion.div>
+      </div>
+      <div className="features">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9 }}
+          exit={{ opacity: 0 }}
+        >
           <div className="wrapper">
             <p className="title">General</p>
             <div className="listVertical">
@@ -117,7 +122,8 @@ function SinglePage() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,8 @@ function HomePage() {
   return (
     <div className="homePage">
       <div className="textContainer">
-        <motion.div initial={{ opacity: 0 }}
+        <motion.div
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
           exit={{ opacity: 0 }}
@@ -37,9 +38,16 @@ function HomePage() {
           </div>
         </motion.div>
       </div>
-      <div className="imgContainer">
-        <img src="/bg.png" alt="" />
-      </div>
+        <div className="imgContainer">
+      <motion.div className="motion"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.9 }}
+        exit={{ opacity: 0 }}
+      >
+          <img src="/bg.png" alt="" />
+      </motion.div>
+        </div>
     </div>
   );
 }
