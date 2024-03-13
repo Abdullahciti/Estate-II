@@ -1,0 +1,71 @@
+.about {
+  position: relative;
+
+  .landing {
+    left: 0;
+    position: absolute;
+    height: 70vh;
+    background-image: url("../../../public/pexels-photo-1918291.jpeg");
+    width: 1000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    transition: all 0.4s;
+    &::before {
+      position: absolute;
+      content: "";
+      transition: all 0.4s ease;
+      content: "";
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+    .landing-text {
+      margin: 0 60px;
+      background-color: rgba(255, 255, 255, 0.486);
+      padding: 50px;
+      width: 55%;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      opacity: 1; /* Initially hidden */
+      transition: all 0.4s ease; /* Transition for smooth effect */
+      transform: scale(1);
+      h1 {
+        span {
+          background: #fece51;
+          padding: 2px 4px;
+        }
+      }
+      p {
+        max-width: 65%;
+        margin: 10px 0;
+      }
+
+      button {
+        border: none;
+        background: #fece51;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    }
+    &:hover .landing-text {
+      opacity: 1; /* On hover, show the text */
+      z-index: 500; /* Modify z-index */
+      transform: scale(1);
+      background-color: rgba(255, 255, 255, 0.952);
+    }
+    &:hover {
+      &::before {
+     background-color: rgba(66, 66, 66, 0.788);
+        // background: #00000062;
+      }
+    }
+  }
+}
