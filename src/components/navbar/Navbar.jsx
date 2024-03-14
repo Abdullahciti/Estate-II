@@ -19,7 +19,7 @@ function Navbar() {
         <Link to={"/contact"}>Contact</Link>
         <Link to={"/agents"}>Agents</Link>
       </div>
-      <div className="right">
+      <div onMouseLeave={() => setOpen(false)} className="right">
         {user ? (
           <div className="user">
             <img
@@ -49,12 +49,12 @@ function Navbar() {
         </div>
         {!open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ display: "none" }}
+            animate={{ right: "-50%" }}
             transition={{ duration: 0.9 }}
-            exit={{ opacity: 0 }}
+            className={"menu"}
           >
-            <div className={"menu"}>
+            <div>
               <Link to={"/"}>Home</Link>
               <Link to={"/about"}>About</Link>
               <Link to={"/contact"}>Contact</Link>
@@ -66,12 +66,12 @@ function Navbar() {
         )}
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ right: "-50%" }}
+            animate={{ right: 0, display: "flex" }}
             transition={{ duration: 0.9 }}
-            exit={{ opacity: 0 }}
+            className={"menu active"}
           >
-            <div className={"menu active"}>
+            <div>
               <Link to={"/"}>Home</Link>
               <Link to={"/about"}>About</Link>
               <Link to={"/contact"}>Contact</Link>

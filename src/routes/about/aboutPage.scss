@@ -16,6 +16,7 @@
     align-items: end;
     justify-content: center;
     transition: all 0.4s;
+    z-index: 1;
     &::before {
       position: absolute;
       content: "";

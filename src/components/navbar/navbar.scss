@@ -126,23 +126,26 @@ nav {
     }
 
     .menu {
-      display: none;
       position: absolute;
       z-index: 20;
       top: 0;
       right: -50%;
       background-color: black;
       color: white;
-      height: 100vh;
+      height: 100%;
       width: 50%;
-      transition: all 1s ease;
-      flex-direction: column;
+      display: flex;
       align-items: center;
       justify-content: center;
       font-size: 24px;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
       &.active {
-        display: flex;
         right: 0;
       }
 
