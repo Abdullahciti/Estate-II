@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -46,14 +47,40 @@ function Navbar() {
             onClick={() => setOpen((prev) => !prev)}
           />
         </div>
-        <div className={open ? "menu active" : "menu"}>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/about"}>About</Link>
-        <Link to={"/contact"}>Contact</Link>
-        <Link to={"/agents"}>Agents</Link>
-          <Link href="/">Sign in</Link>
-          <Link href="/">Sign up</Link>
-        </div>
+        {!open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className={"menu"}>
+              <Link to={"/"}>Home</Link>
+              <Link to={"/about"}>About</Link>
+              <Link to={"/contact"}>Contact</Link>
+              <Link to={"/agents"}>Agents</Link>
+              <Link href="/">Sign in</Link>
+              <Link href="/">Sign up</Link>
+            </div>
+          </motion.div>
+        )}
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className={"menu active"}>
+              <Link to={"/"}>Home</Link>
+              <Link to={"/about"}>About</Link>
+              <Link to={"/contact"}>Contact</Link>
+              <Link to={"/agents"}>Agents</Link>
+              <Link href="/">Sign in</Link>
+              <Link href="/">Sign up</Link>
+            </div>
+          </motion.div>
+        )}
       </div>
     </nav>
   );
