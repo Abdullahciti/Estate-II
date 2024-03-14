@@ -191,7 +191,7 @@ function Chat() {
                 <span className="minimize" onClick={handleMinimize}>
                   -
                 </span>
-                <span className="close" onClick={() => setChat(null)}>
+                <span className="close" onClick={() => setChat(false)} onMouseOver={() => console.log(chat)}>
                   X
                 </span>
               </div>

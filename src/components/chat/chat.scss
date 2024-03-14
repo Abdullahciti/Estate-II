@@ -1,3 +1,4 @@
+@import "../../responsive.scss";
 .chat {
   height: 100%;
   display: flex;
@@ -43,6 +44,13 @@
         max-width: 100%;
         }
       }
+
+      @include md {
+        border-bottom: 1px solid #999;
+      }
+    }
+    @include md {
+      flex: initial;
     }
   }
 
@@ -128,7 +136,7 @@
       }
     }
     .bottom {
-      border-top: 2px solid #f7c14b85;
+      border: 2px solid #f7c14b85;
       height: 60px;
       display: flex;
       align-items: center;
@@ -138,7 +146,13 @@
         flex:3;
         height: 100%;
         border: none;
-        padding: 20px;
+        padding: 10px;
+        resize: none;
+
+        &:focus {
+          outline: none;
+          border: 1px solid #f7c14b85;
+        }
       }
 
       button{
@@ -149,5 +163,11 @@
         cursor: pointer;
       }
     }
+    @include md {
+      margin: 15px 0;
+    }
+  }
+  @include md {
+    margin: 20px 0;
   }
 }

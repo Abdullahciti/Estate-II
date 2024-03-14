@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const user = true;
+  const [user, setUser] = useState(false);
   return (
     <nav>
       <div className="left">
@@ -22,10 +22,12 @@ function Navbar() {
       <div onMouseLeave={() => setOpen(false)} className="right">
         {user ? (
           <div className="user">
-            <img
-              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt=""
-            />
+            <Link to="/profile" className="link">
+              <img
+                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt=""
+              />
+            </Link>
             <span>John Doe</span>
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
@@ -34,7 +36,9 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <Link href="/">Sign in</Link>
+            <Link onClick={() => setUser(true)} href="/">
+              Sign in
+            </Link>
             <Link href="/" className="register">
               Sign up
             </Link>
@@ -59,8 +63,8 @@ function Navbar() {
               <Link to={"/about"}>About</Link>
               <Link to={"/contact"}>Contact</Link>
               <Link to={"/agents"}>Agents</Link>
-              <Link href="/">Sign in</Link>
-              <Link href="/">Sign up</Link>
+              {!user && <Link href="/">Sign in</Link>}
+              {!user && <Link href="/">Sign up</Link>}
             </div>
           </motion.div>
         )}
@@ -76,8 +80,12 @@ function Navbar() {
               <Link to={"/about"}>About</Link>
               <Link to={"/contact"}>Contact</Link>
               <Link to={"/agents"}>Agents</Link>
-              <Link href="/">Sign in</Link>
-              <Link href="/">Sign up</Link>
+              {!user && (
+                <Link onClick={() => setUser(true)} href="/">
+                  Sign in
+                </Link>
+              )}
+              {!user && <Link href="/">Sign up</Link>}
             </div>
           </motion.div>
         )}
