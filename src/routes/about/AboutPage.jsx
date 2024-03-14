@@ -14,7 +14,7 @@ const AboutPage = () => {
       <div className="landing">
         <div className="landing-text">
           <h1>
-            <span>SELL</span> PROPERTY IN HEILBRONN
+            <span>SELL</span> PROPERTY IN STUTTGART
           </h1>
           <p>
             owner-managed brokerage company in southern Germany, GARANT

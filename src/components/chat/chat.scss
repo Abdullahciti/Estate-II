@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     h1 {
       font-weight: 300;
@@ -17,21 +17,31 @@
     .message {
       background-color: white;
       padding: 20px;
-      border-radius: 10px;
+      border-bottom: groove;
       display: flex;
       align-items: center;
-      gap: 20px;
-      cursor: pointer;
-
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
+      .left {
+        flex: 1;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        img {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        span {
+          cursor: pointer;
+          font-weight: bold;
+        }
       }
-
-      span {
-        font-weight: bold;
+      .right {
+        flex: 1;
+        p {
+        max-width: 100%;
+        }
       }
     }
   }
@@ -63,13 +73,39 @@
           object-fit: cover;
         }
       }
-      .close {
-        cursor: pointer;
+      .right {
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .minimize {
+          text-align: center;
+          border-radius: 3px;
+          font-size: 24px;
+          cursor: pointer;
+          padding: 0 5px;
+          transition: all 0.4s ease;
+          &:hover {
+            background: white;
+          }
+        }
+        .close {
+          text-align: center;
+          border-radius: 3px;
+          cursor: pointer;
+          padding: 5px;
+          transition: all 0.4s ease;
+          &:hover {
+            background: rgb(230, 46, 46);
+            color: white;
+          }
+        }
       }
     }
     .center {
       height: 350px;
-      overflow: scroll;
+      overflow-y: scroll;
       padding: 20px;
       display: flex;
       flex-direction: column;
