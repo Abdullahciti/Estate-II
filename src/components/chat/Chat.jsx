@@ -17,7 +17,7 @@ function Chat() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
+          transition={{ duration: 0.25 }}
           exit={{ opacity: 0 }}
         >
           <h1>Messages</h1>

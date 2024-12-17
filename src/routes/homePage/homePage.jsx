@@ -6,48 +6,36 @@ function HomePage() {
   return (
     <div className="homePage">
       <div className="textContainer">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          exit={{ opacity: 0 }}
-        >
-          <div className="wrapper">
-            <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-              explicabo suscipit cum eius, iure est nulla animi consequatur
-              facilis id pariatur fugit quos laudantium temporibus dolor ea
-              repellat provident impedit!
-            </p>
-            <SearchBar />
-            <div className="boxes">
-              <div className="box">
-                <h1>16+</h1>
-                <h2>Years of Experience</h2>
-              </div>
-              <div className="box">
-                <h1>200</h1>
-                <h2>Award Gained</h2>
-              </div>
-              <div className="box">
-                <h1>2000+</h1>
-                <h2>Property Ready</h2>
-              </div>
+        <div className="wrapper">
+          <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
+            explicabo suscipit cum eius, iure est nulla animi consequatur
+            facilis id pariatur fugit quos laudantium temporibus dolor ea
+            repellat provident impedit!
+          </p>
+          <SearchBar />
+          <div className="boxes">
+            <div className="box">
+              <h1>16+</h1>
+              <h2>Years of Experience</h2>
+            </div>
+            <div className="box">
+              <h1>200</h1>
+              <h2>Award Gained</h2>
+            </div>
+            <div className="box">
+              <h1>2000+</h1>
+              <h2>Property Ready</h2>
             </div>
           </div>
-        </motion.div>
-      </div>
-        <div className="imgContainer">
-      <motion.div className="motion"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.9 }}
-        exit={{ opacity: 0 }}
-      >
-          <img src="/bg.png" alt="" />
-      </motion.div>
         </div>
+      </div>
+      <div className="imgContainer">
+        <div className="motion">
+          <img src="/bg.png" alt="" />
+        </div>
+      </div>
     </div>
   );
 }

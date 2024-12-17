@@ -21,6 +21,10 @@ function SearchBar() {
     history.push(searchPath); // Navigate to the search path
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div className="searchBar">
       <div className="type">
@@ -34,7 +38,7 @@ function SearchBar() {
           </button>
         ))}
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" name="location" placeholder="City Location" />
         <input
           type="number"

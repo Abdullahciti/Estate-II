@@ -1,0 +1,107 @@
+@import "../../responsive.scss";
+
+// SCSS for Sign In Form
+
+$primary-color: #4a90e2; // Primary blue color
+$primary-hover: darken($primary-color, 10%);
+$input-border: #ccc;
+$background-color: #f9f9f9;
+$text-color: #333;
+
+.sign-in {
+  width: 350px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  .header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: $text-color;
+    font-weight: 600;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 15px;
+
+      label {
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: $text-color;
+      }
+
+      input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid $input-border;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 5px rgba($primary-color, 0.5);
+        }
+      }
+      .pass {
+        position: relative;
+        input {
+          width: 100%;
+        }
+        svG {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: black;
+          transform: color 0.3 ease;
+          cursor: pointer;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    .submit-button {
+      padding: 10px 15px;
+      background-color: $primary-color;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+  .bottom {
+    margin: 10px 0;
+    h6 {
+      font-size: 16px;
+      padding-top: 15px;
+    }
+    .register {
+      padding: 0 2px;
+      text-decoration: underline;
+      color: $primary-color;
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+}

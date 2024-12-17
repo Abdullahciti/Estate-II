@@ -51,6 +51,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    // background-color: #fcf5f3;
     background-color: #fcf5f3;
     height: 100%;
 
@@ -126,36 +127,53 @@ nav {
         display: inline;
       }
     }
-
-    .menu {
-      position: absolute;
-      z-index: 20;
-      top: 0;
-      right: -50%;
-      background-color: black;
-      color: white;
-      height: 100%;
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      &.active {
-        right: 0;
+    .closeIcon {
+      display: none;
+      z-index: 999;
+      border-radius: 50%;
+      background: black;
+      overflow: hidden;
+      transition: all 0.7s ease;
+      
+      img {
+        padding: 5px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
       }
 
       @include sm {
-        a {
-          display: initial;
+        display: inline;
+      }
+    }
+    
+    .menu {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60%;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.35s ease;
+      z-index: 998;
+      a {
+        @include sm {
+          display: block;
+        }
+        font-size: 20px;
+        color: white;
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
+    .close {
+      right: -60%;
+    }
+    
   }
 }

@@ -1,3 +1,6 @@
-// [1] As next i want to add a single page manullay and dynamiclly to 
+// [ 1st ] should handle the sign in  sign up  
+
+// [ 2nd ] should make a fake user and save data to localstorage   
+
+// [ 3rd ] As next i want to add a single page manullay and dynamiclly to 
 // show my exactly picked picture Post To JSon Function could help me
-// [2] as next must i learn how to handle the chat 

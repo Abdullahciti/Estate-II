@@ -5,12 +5,6 @@ import { motion } from "framer-motion";
 const AboutPage = () => {
   return (
     <div className="about">
-                <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          exit={{ opacity: 0 }}
-        >
       <div className="landing">
         <div className="landing-text">
           <h1>
@@ -27,7 +21,6 @@ const AboutPage = () => {
           <button>Rate Now</button>
         </div>
       </div>
-      </motion.div>
     </div>
   );
 };

@@ -1,55 +1,83 @@
 import HomePage from "./routes/homePage/homePage";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Routes
 import ListPage from "./routes/listPage/listPage";
 import Layout from "./routes/layout/layout";
-import SinglePage from "./routes/singlePage/singlePage";
+import SignIn from "./routes/signIn/SignIn";
+import SignUP from "./routes/signUp/SignUp";
+// import SinglePage from "./routes/singlePage/singlePage";
 import ProfilePage from "./routes/profilePage/profilePage";
 import AboutPage from "./routes/about/AboutPage";
 import AgentsPage from "./routes/agents/AgentsPage";
 import ContactPage from "./routes/contact/ContactPage";
+import ErrorPage from "./routes/errorPage/ErrorPage";
+import { useState } from "react";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
+  const [username, setUsername] = useState("Admin");
+  const [password, setPassword] = useState("admin");
+
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
-      children:[
+      element: <Layout username={username} />,
+      errorElement: <ErrorPage />,
+      children: [
         {
-          path:"/",
-          element:<HomePage/>
+          path: "/",
+          element: <HomePage />,
         },
         {
-          path:"/list",
-          element:<ListPage/>
+          path: "/list",
+          element: <ListPage />,
         },
         {
-          path:"/:id",
-          element:<SinglePage/>
+          path: "/signin",
+          element: (
+            <SignIn
+              username={username}
+              password={password}
+              setUsername={setUsername}
+              setPassword={setPassword}
+            />
+          ),
         },
         {
-          path:"/profile",
-          element:<ProfilePage/>
+          path: "/signup",
+          element: <SignUP />,
         },
         {
-          path:"/about",
-          element:<AboutPage/>
-        },{
-          path:"/contact",
-          element:<ContactPage />
-        },{
-          path:"/agents",
-          element:<AgentsPage/>
-        }
-      ]
-    }
+          path: "/:id",
+          element: <ErrorPage />,
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage username={username} password={password} />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+        {
+          path: "/agents",
+          element: <AgentsPage />,
+        },
+      ],
+    },
   ]);
 
   return (
-
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   );
 }
 

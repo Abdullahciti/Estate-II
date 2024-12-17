@@ -1,11 +1,21 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
+import { useAuth } from "../../context/AuthContext";
 import "./profilePage.scss";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-function ProfilePage() {
-  const [isLogging, setIsLogging] = useState(false);
+function ProfilePage({username, password}) {
+
+  const { isSignedIn, setIsSignedIn} = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    setIsSignedIn(false);
+    navigate("/");
+  };
 
   return (
     <div className="profilePage">
@@ -13,8 +23,7 @@ function ProfilePage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
         >
           <div className="wrapper">
             <div className="title">
@@ -32,16 +41,17 @@ function ProfilePage() {
                   />
                 </span>
                 <span>
-                  Username: <b>John Doe</b>
+                  Username: <b>{username}</b>
                 </span>
                 <span>
-                  E-mail: <b>john@gmail.com</b>
+                  E-mail: <b>{username}@gmail.com</b>
+                </span>
+                <span>
+                  Password: <b><input type="password" value={password} /></b>
                 </span>
               </div>
               <div className="right">
-                <button onClick={() => setIsLogging((prev) => !prev)}>
-                  Log out
-                </button>
+                <button onClick={handleLogOut}>Log out</button>
               </div>
             </div>
             <div className="title">
