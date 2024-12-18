@@ -23,7 +23,7 @@
     .wrapper {
       padding-right: 50px;
       display: flex;
-      flex-direction: column;
+      flex-direction: column; 
       margin: 50px 0;
       .title {
         display: flex;
@@ -31,7 +31,6 @@
         justify-content: space-between;
         border-bottom: 1px solid rgb(0, 0, 0, 0.3);
         padding-bottom: 25px;
-        margin: 50px 0;
         margin-top: 0;
         h1 {
           font-weight: 300;
@@ -90,6 +89,11 @@
             }
           }
         }
+        input {
+          padding: 10px;
+          font-size: 16px;
+          cursor: no-drop;
+        }
       }
     }
   }
@@ -109,6 +113,32 @@
       @include md {
         padding: 0 2px;
       }
+    }
+  }
+}
+.no-accsess {
+  h6 {
+    font-size: 16px;
+    padding-top: 15px;
+  }
+  .sign-in {
+    padding: 0 2px;
+    text-decoration: underline;
+    // color: $button-bg;
+    &:hover {
+      // color: $button-hover-bg;
+    }
+  }
+  h6 {
+    font-size: 16px;
+    padding-top: 15px;
+  }
+  .register {
+    padding: 0 2px;
+    text-decoration: underline;
+    // color: $primary-color;
+    &:hover {
+      // color: $primary-hover;
     }
   }
 }

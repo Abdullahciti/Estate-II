@@ -5,7 +5,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   a {
     transition: all 0.4s ease;
 
@@ -64,35 +64,40 @@ nav {
       margin: 20px;
     }
 
-    .user{
+    .user {
       display: flex;
       align-items: center;
       font-weight: bold;
       .link {
         display: block;
-        img{
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
+        z-index: 990;
+        margin: 0 15px;
+        padding: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.7s ease;
+        cursor: pointer;
+        img {
+          width: 48px;
+          height: 48px;
           object-fit: cover;
-          margin-right: 20px;
         }
       }
 
-      span{
-        @include sm{
+      span {
+        @include sm {
           display: none;
         }
       }
 
-      .profile{
+      .profile {
         padding: 12px 24px;
         background-color: #fece51;
         cursor: pointer;
         border: none;
         position: relative;
-        
-        .notification{
+
+        .notification {
           position: absolute;
           top: -8px;
           right: -8px;
@@ -105,7 +110,6 @@ nav {
           align-items: center;
           justify-content: center;
         }
-
       }
     }
 
@@ -113,67 +117,118 @@ nav {
       background-color: #fece51;
     }
 
-    .menuIcon {
+    .mobile {
       display: none;
-      z-index: 999;
-
-      img {
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-      }
-
-      @include sm {
-        display: inline;
-      }
-    }
-    .closeIcon {
-      display: none;
-      z-index: 999;
-      border-radius: 50%;
-      background: black;
-      overflow: hidden;
-      transition: all 0.7s ease;
-      
-      img {
-        padding: 5px;
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-      }
-
-      @include sm {
-        display: inline;
-      }
-    }
-    
-    .menu {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 60%;
-      height: 100vh;
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      transition: all 0.35s ease;
-      z-index: 998;
-      a {
-        @include sm {
-          display: block;
-        }
-        font-size: 20px;
+      justify-content: flex-end;
+      height: 100%;
+      .user-icon {
+        display: none;
+        z-index: 997;
+        margin-right: 10px;
         color: white;
+        opacity: 0.829;
+        transition: all 0.35s ease;
+        padding: 5px;
+        background: #000;
+        border-radius: 50%;
+        cursor: pointer;
+        @include sm {
+          display: inline;
+        }
         &:hover {
-          text-decoration: underline;
+          opacity: 1;
+        }
+        svg {
+          height: 36px;
+          width: 36px;
+          padding: 5px;
         }
       }
+
+      .icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        margin-left: 10px;
+        .menuIcon {
+          position: absolute;
+          display: none;
+          z-index: 999;
+          opacity: 0.829;
+          transition: all 0.35s ease;
+          padding: 5px;
+          background: #000;
+          border-radius: 50%;
+          cursor: pointer;
+          &:hover {
+            opacity: 1;
+          }
+          img {
+            width: 36px;
+            height: 36px;
+          }
+  
+          @include sm {
+            display: inline;
+          }
+        }
+        .closeIcon {
+          position: absolute;
+          display: none;
+          z-index: 999;
+          border-radius: 50%;
+          transition: all 0.1s ease;
+          cursor: pointer;
+          background-color: black;
+          padding: 5px;
+          img {
+            width: 36px;
+            height: 36px;
+            padding: 5px;
+          }
+  
+          @include sm {
+            display: inline;
+          }
+        }
+      }
+      .menu {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60%;
+        height: 100vh;
+        background-color: rgb(26, 25, 25);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.35s ease;
+        z-index: 998;
+        a {
+          @include sm {
+            display: block;
+          }
+          font-size: 20px;
+          color: white;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        @include sm {
+          display: flex;
+        }
+      }
+      .close {
+        right: -60%;
+        width: 0;
+      }
+      @include sm {
+        display: flex;
+      }
     }
-    .close {
-      right: -60%;
-    }
-    
   }
 }

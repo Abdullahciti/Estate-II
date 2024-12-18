@@ -1,10 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
 import "./navbar.scss";
+
+// Icons
+import { FaRegUser } from "react-icons/fa6";
+
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-function Navbar({username}) {
+function Navbar({ username }) {
   const { isSignedIn, setIsSignedIn } = useAuth();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -55,10 +59,7 @@ function Navbar({username}) {
         )}
         {!isSignedIn && (
           <>
-            <Link
-              aria-label="sign-in button"
-              to="/signin"
-            >
+            <Link aria-label="sign-in button" to="/signin">
               Sign in
             </Link>
             <Link
@@ -70,30 +71,46 @@ function Navbar({username}) {
             </Link>
           </>
         )}
-        <div className="menuIcon">
-          <img
-            src="/menu.png"
-            style={showMenu ? { display: "none" } : { display: "block" }}
-            alt="it`s an icon describes the menu"
-            onClick={() => setShowMenu(true)}
-          />
+
+        <div className="mobile">
+          {!isSignedIn && (
+            <Link className="user-icon" to={"/profile"}>
+              <FaRegUser />
+            </Link>
+          )}
+          <div className="icons">
+            <div
+              className="menuIcon"
+              style={
+                showMenu ? { transform: "scale(0)" } : { transform: "scale(1)" }
+              }
+            >
+              <img
+                src="/menu.png"
+                alt="it`s an icon describes the menu"
+                onClick={() => setShowMenu(true)}
+              />
+            </div>
+            <div
+              className="closeIcon"
+              style={
+                showMenu ? { transform: "scale(1)" } : { transform: "scale(0)" }
+              }
+            >
+              <img
+                src="/75519.png"
+                alt="it`s an icon describes the menu"
+                onClick={() => setShowMenu(false)}
+              />
+            </div>
+          </div>
+          <ul className={showMenu ? "menu" : "menu close"} ref={menuRef}>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/about"}>About</Link>
+            <Link to={"/contact"}>Contact</Link>
+            <Link to={"/agents"}>Agents</Link>
+          </ul>
         </div>
-        <div
-          className="closeIcon"
-          style={showMenu ? { display: "block" } : { display: "none" }}
-        >
-          <img
-            src="/75519.png"
-            alt="it`s an icon describes the menu"
-            onClick={() => setShowMenu(false)}
-          />
-        </div>
-        <ul className={showMenu ? "menu open" : "menu close"} ref={menuRef}>
-          <Link to={"/"}>Home</Link>
-          <Link to={"/about"}>About</Link>
-          <Link to={"/contact"}>Contact</Link>
-          <Link to={"/agents"}>Agents</Link>asda
-        </ul>
       </div>
     </nav>
   );
