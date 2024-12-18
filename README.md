@@ -37,7 +37,7 @@ To get started with Estate II, follow these steps:
 1. Clone the repository
 bash
 Copy code
-git clone https://github.com/your-username/Estate II.git
+git clone https://github.com/Abdullahciti/Estate-II.git
 cd Estate-II
 2. Install dependencies
 Run the following command to install the necessary packages:
@@ -51,7 +51,7 @@ To start the development server and begin working on the app, run:
 bash
 Copy code
 npm run dev
-This will start the app on http://localhost:3000 (or another available port).
+This will start the app on http://localhost:5173/ (or another available port).
 
 4. Build for production
 To build the app for production, run:
