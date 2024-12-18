@@ -1,6 +1,5 @@
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./homePage.scss";
-import { motion } from "framer-motion";
 
 function HomePage() {
   return (

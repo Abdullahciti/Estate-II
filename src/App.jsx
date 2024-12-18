@@ -6,7 +6,7 @@ import ListPage from "./routes/listPage/listPage";
 import Layout from "./routes/layout/layout";
 import SignIn from "./routes/signIn/SignIn";
 import SignUP from "./routes/signUp/SignUp";
-// import SinglePage from "./routes/singlePage/singlePage";
+import SinglePage from "./routes/singlePage/singlePage";
 import ProfilePage from "./routes/profilePage/profilePage";
 import AboutPage from "./routes/about/AboutPage";
 import AgentsPage from "./routes/agents/AgentsPage";
@@ -52,7 +52,7 @@ function App() {
         },
         {
           path: "/:id",
-          element: <ErrorPage />,
+          element: <SinglePage />,
         },
         {
           path: "/profile",

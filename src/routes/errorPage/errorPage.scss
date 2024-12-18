@@ -1,0 +1,12 @@
+@import "../../responsive.scss";
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

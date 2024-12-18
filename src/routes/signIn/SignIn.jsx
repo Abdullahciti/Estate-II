@@ -78,7 +78,7 @@ const SignIn = ({ username, password }) => {
       <div className="bottom">
         <h6>if you don`t have an account, so you are missing to        
         <Link
-              aria-label="sign-in button"
+              aria-label="sign-up button"
               to="/signup"
               className="register"
             >

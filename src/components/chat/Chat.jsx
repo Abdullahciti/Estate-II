@@ -3,99 +3,127 @@ import "./chat.scss";
 import { motion } from "framer-motion";
 
 function Chat() {
-  const [chat, setChat] = useState(true);
-  const [minize, setMinimize] = useState(false);
+  const [showChat, setShowChat] = useState(true);
+  const [minize, setMinimize] = useState(true);
 
   const handleMinimize = () => {
     setMinimize((prev) => !prev);
-    setChat((prev) => !prev)
+    setShowChat((prev) => !prev);
   };
 
   return (
     <div className="chat">
-      <div className="messages">
+      <motion.div
+        className="messages"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25 }}
+        exit={{ opacity: 0 }}
+      >
+        <h1>Messages</h1>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Jack Doe</span>
+          </div>
+          <div className="right">
+            <p>Hast du noch nicht keine gute Angebote gefunden?</p>
+          </div>
+        </div>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Client</span>
+          </div>
+          <div className="right">
+            <p>Are you still looking for an offer?</p>
+          </div>
+        </div>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Immoscout</span>
+          </div>
+          <div className="right">
+            <p>Herr Doe, wir haben ein großartiges Angebot für Sie</p>
+          </div>
+        </div>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Ahmed Yasser</span>
+          </div>
+          <div className="right">
+            <p>Lorem ipsum dolor sit amet...</p>
+          </div>
+        </div>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Daniel Tarachenko</span>
+          </div>
+          <div className="right">
+            <p>I found a super Offer</p>
+          </div>
+        </div>
+        <div className="message">
+          <div className="left">
+            <img
+              src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt=""
+            />
+            <span>Admin</span>
+          </div>
+          <div className="right">
+            <p>Did you finish your tasks?</p>
+          </div>
+        </div>
+      </motion.div>
+      {!minize && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.9 }}
           exit={{ opacity: 0 }}
         >
-          <h1>Messages</h1>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Jack Doe</span>
+          {" "}
+          <div className="chatBox mini">
+            <div className="top">
+              <div className="user">
+                <img
+                  src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  alt=""
+                />
+                Jack Doe
+              </div>
+              <div className="right">
+                <span className="minimize" onClick={handleMinimize}>
+                  -
+                </span>
+                <span className="close" onClick={() => setShowChat(false)}>
+                  X
+                </span>
+              </div>
             </div>
-            <div className="right">
-              <p>Hast du noch nicht keine gute Angebote gefunden?</p>
-            </div>
-          </div>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Makler</span>
-            </div>
-            <div className="right">
-              <p>Are you still looking for an offer?</p>
-            </div>
-          </div>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Immoscout</span>
-            </div>
-            <div className="right">
-              <p>Herr Doe, wir haben ein großartiges Angebot für Sie</p>
-            </div>
-          </div>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Ahmed Yasser</span>
-            </div>
-            <div className="right">
-              <p>Lorem ipsum dolor sit amet...</p>
-            </div>
-          </div>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Daniel Tarachenko</span>
-            </div>
-            <div className="right">
-              <p>I found a super Offer</p>
-            </div>
-          </div>
-          <div className="message">
-            <div className="left">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt=""
-              />
-              <span>Admin</span>
-            </div>
-            <div className="right">
-              <p>Did you finish your tasks?</p>
-            </div>
-          </div>
+          </div>{" "}
         </motion.div>
-      </div>
-      {chat && (
+      )}
+      {showChat && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -116,7 +144,7 @@ function Chat() {
                 <span className="minimize" onClick={handleMinimize}>
                   -
                 </span>
-                <span className="close" onClick={() => setChat(null)}>
+                <span className="close" onClick={() => setShowChat(null)}>
                   X
                 </span>
               </div>
@@ -170,35 +198,7 @@ function Chat() {
           </div>{" "}
         </motion.div>
       )}
-      {minize && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          exit={{ opacity: 0 }}
-        >
-          {" "}
-          <div className="chatBox">
-            <div className="top">
-              <div className="user">
-                <img
-                  src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  alt=""
-                />
-                Jack Doe
-              </div>
-              <div className="right">
-                <span className="minimize" onClick={handleMinimize}>
-                  -
-                </span>
-                <span className="close" onClick={() => setChat(false)} onMouseOver={() => console.log(chat)}>
-                  X
-                </span>
-              </div>
-            </div>
-          </div>{" "}
-        </motion.div>
-      )}
+      
     </div>
   );
 }

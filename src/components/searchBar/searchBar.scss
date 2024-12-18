@@ -1,9 +1,10 @@
 @import "../../responsive.scss";
 
 .searchBar {
+  display: flex;
+  flex-direction: column;
   .type {
-
-
+    align-self: flex-start;
     button {
       padding: 16px 36px;
       border: 1px solid #999;
@@ -61,7 +62,7 @@
         }
       }
 
-      @include sm{
+      @include sm {
         width: auto;
         &:nth-child(2),
         &:nth-child(3) {
@@ -78,7 +79,7 @@
       background-color: #fece51;
       flex: 1;
 
-      @include sm{
+      @include sm {
         padding: 10px;
       }
 

@@ -71,6 +71,7 @@ function ProfilePage({ username, password }) {
             </motion.div>
           </div>
           <div className="chatContainer">
+            {/* عندي فكرة اخلي المحادثات في مكان معلق fixed all in one container */}
             <div className="wrapper">
               <Chat />
             </div>

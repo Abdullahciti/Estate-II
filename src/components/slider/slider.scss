@@ -5,17 +5,17 @@
   height: 350px;
   display: flex;
   gap: 20px;
-
+  
   @include sm {
     height: 280px;
   }
-
+  
   .fullSlider {
     position: absolute;
-    width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
+    padding: 0 15px;
     background-color: black;
     display: flex;
     justify-content: space-between;

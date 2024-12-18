@@ -3,7 +3,6 @@
 .singlePage {
   display: flex;
   height: 100%;
-
   @include md {
     flex-direction: column;
     overflow-y: auto;
