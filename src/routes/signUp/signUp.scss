@@ -23,6 +23,11 @@ $text-color: #333;
     font-size: 1.8rem;
   }
 
+  .error {
+    margin: 15px 0;
+    color: rebeccapurple;
+  }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -33,6 +38,7 @@ $text-color: #333;
       margin-bottom: 15px;
 
       label {
+        align-self: flex-start;
         margin-bottom: 5px;
         font-weight: bold;
         color: $text-color;
@@ -48,6 +54,24 @@ $text-color: #333;
           outline: none;
           border-color: $button-bg;
           box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+      }
+    }
+    .pass {
+      position: relative;
+      input {
+        width: 100%;
+      }
+      svG {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: black;
+        transform: color 0.3 ease;
+        cursor: pointer;
+        &:hover {
+          color: $button-bg;
         }
       }
     }

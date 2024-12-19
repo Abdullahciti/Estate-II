@@ -16,15 +16,21 @@ import { useState } from "react";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-  const [username, setUsername] = useState("Admin");
-  const [password, setPassword] = useState("admin");
-
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const takenUsernames = ["Admin", "user123", "test_user"];
+  const passwords = ["admin", "user123", "testuse"];
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout username={username} />,
+      element: (
+        <Layout
+          username={username}
+          setUsername={setUsername}
+          setPassword={setPassword}
+        />
+      ),
       errorElement: <ErrorPage />,
       children: [
         {
@@ -43,12 +49,20 @@ function App() {
               password={password}
               setUsername={setUsername}
               setPassword={setPassword}
+              takenUsernames={takenUsernames}
+              passwords={passwords}
             />
           ),
         },
         {
           path: "/signup",
-          element: <SignUP />,
+          element: (
+            <SignUP
+              setPassword={setPassword}
+              setUsername={setUsername}
+              takenUsernames={takenUsernames}
+            />
+          ),
         },
         {
           path: "/:id",

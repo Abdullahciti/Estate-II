@@ -12,6 +12,7 @@ function ProfilePage({ username, password }) {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
+    window.localStorage.clear()
     setIsSignedIn(false);
     navigate("/");
   };
