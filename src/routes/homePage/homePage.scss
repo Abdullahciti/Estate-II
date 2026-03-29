@@ -13,7 +13,6 @@
       flex-direction: column;
       justify-content: center;
       gap: 50px;
-      height: 100%;
 
       @include lg{
         padding-right: 50px;
@@ -24,7 +23,8 @@
       }
 
       @include sm{
-        justify-content: flex-start;
+        height: fit-content;
+        justify-content:center;
       }
 
       .title {
@@ -36,11 +36,14 @@
       }
 
       .boxes {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
         justify-content: space-between;
 
         @include sm {
-          display: none;
+          display: flex;
+          flex-direction: column;
         }
 
         h1 {

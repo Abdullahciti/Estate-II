@@ -1,35 +1,34 @@
-import { listData } from "../../lib/dummydata";
-import "./listPage.scss";
-import Filter from "../../components/filter/Filter";
-import Card from "../../components/card/Card";
-import Map from "../../components/map/Map";
-import { motion } from "framer-motion";
+
+import { useEffect, useState } from "react";
+import { supabase } from "../../lib/supabase";
 
 function ListPage() {
-  const data = listData;
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase.from("properties").select("*");
+
+      if (error) {
+        console.log(error);
+      } else {
+        setProperties(data);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <div className="listPage">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.9 }}
-        exit={{ opacity: 0 }}
-      >
-        <div className="listContainer">
-          <div className="wrapper">
-            <Filter />
-            {data.map((item) => (
-              <Card key={item.id} item={item} />
-            ))}
-          </div>
+    <div>
+      {properties.map((item) => (
+        <div key={item.id}>
+          <h2>{item.title}</h2>
+          <p>{item.price}</p>
+          <img src={item.image_url} width="200" />
         </div>
-      </motion.div>
-      <div className="mapContainer">
-        <Map items={data} />
-      </div>
+      ))}
     </div>
   );
 }
-
 export default ListPage;

@@ -27,6 +27,14 @@ function HomePage() {
               <h1>2000+</h1>
               <h2>Property Ready</h2>
             </div>
+            <div className="box">
+              <h1>150+</h1>
+              <h2>Happy Clients</h2>
+            </div>
+            <div className="box">
+              <h1>First Meeting</h1>
+              <h2>For Free</h2>
+            </div>
           </div>
         </div>
       </div>

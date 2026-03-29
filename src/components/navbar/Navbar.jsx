@@ -11,35 +11,37 @@ import { useAuth } from "../../context/AuthContext";
 function Navbar({ username }) {
   const { isSignedIn, setIsSignedIn } = useAuth();
 
-  const [showMenu, setShowMenu] = useState(false);
-
   const menuRef = useRef(null);
 
-  const handleMenu = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setShowMenu(false);
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (showMenu) {
-      document.addEventListener("mousedown", handleMenu);
-    } else {
-      document.removeEventListener("mousedown", handleMenu);
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
     }
-  });
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav>
       <div className="left">
-        <Link href="/" className="logo">
-          <img src="/logo.png" alt="" />
+        <Link to="/" className="logo">
+          <img src="/logo.png" alt="Estate II logo" />
           <span>Estate II</span>
         </Link>
         <Link to={"/"}>Home</Link>
         <Link to={"/about"}>About</Link>
-        <Link to={"/contact"}>Contact</Link>
-        <Link to={"/agents"}>Agents</Link>
+        {/* <Link to={"/contact"}>Contact</Link>
+        <Link to={"/agents"}>Agents</Link> */}
       </div>
       <div className="right">
         {isSignedIn && (
@@ -82,33 +84,45 @@ function Navbar({ username }) {
             <div
               className="menuIcon"
               style={
-                showMenu ? { transform: "scale(0)" } : { transform: "scale(1)" }
+                isMenuOpen
+                  ? { transform: "scale(0)" }
+                  : { transform: "scale(1)" }
               }
             >
               <img
                 src="/menu.png"
                 alt="it`s an icon describes the menu"
-                onClick={() => setShowMenu(true)}
+                onClick={() => setIsMenuOpen(true)}
               />
             </div>
             <div
               className="closeIcon"
               style={
-                showMenu ? { transform: "scale(1)" } : { transform: "scale(0)" }
+                isMenuOpen
+                  ? { transform: "scale(1)" }
+                  : { transform: "scale(0)" }
               }
             >
               <img
                 src="/75519.png"
                 alt="it`s an icon describes the menu"
-                onClick={() => setShowMenu(false)}
+                onClick={() => setIsMenuOpen(false)}
               />
             </div>
           </div>
-          <ul className={showMenu ? "menu" : "menu close"} ref={menuRef}>
-            <Link to={"/"}>Home</Link>
-            <Link to={"/about"}>About</Link>
-            <Link to={"/contact"}>Contact</Link>
-            <Link to={"/agents"}>Agents</Link>
+          <ul className={isMenuOpen ? "menu" : "menu close"} ref={menuRef}>
+            <li>
+              <Link onClick={() => setIsMenuOpen(false)} to={"/"}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link onClick={() => setIsMenuOpen(false)} to={"/about"}>
+                About
+              </Link>
+            </li>
+            {/* <Link to={"/contact"}>Contact</Link>
+            <Link to={"/agents"}>Agents</Link> */}
           </ul>
         </div>
       </div>
