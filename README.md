@@ -31,58 +31,33 @@ ESLint: A linting tool to enforce consistent code style and improve code quality
 Additional Development Tools:
 @vitejs/plugin-react: A Vite plugin for React.
 React Icons: A library to include popular icons in your React components.
-Installation
-To get started with Estate II, follow these steps:
+
+🔧 Installation and Setup
 
 1. Clone the repository
-bash
-Copy code
-git clone https://github.com/Abdullahciti/Estate-II.git
-cd Estate-II
-2. Install dependencies
-Run the following command to install the necessary packages:
+   ```bash
+      git clone https://github.com/Abdullahciti/Estate-II.git
+      cd Estate-II
 
-bash
-Copy code
-npm install
-3. Start the development server
-To start the development server and begin working on the app, run:
+2. Install Dependencies:
 
-bash
-Copy code
-npm run dev
-This will start the app on http://localhost:5173/ (or another available port).
+  Install frontend dependencies:
 
-4. Build for production
-To build the app for production, run:
+     cd frontend
+     npm install
+  Install backend dependencies:
 
-bash
-Copy code
-npm run build
-This will create a production-ready build in the /dist folder.
+     cd backend
+     npm install
+3. Start the Development Server:
 
-5. Preview the production build
-To preview the production build locally, run:
+  Run the backend:
 
-bash
-Copy code
-npm run preview
-Usage
-Once the app is running, you'll be able to:
+     cd backend
+     node server.js
+  Run the frontend:
 
-Browse the apartment listings.
-View properties on an interactive map powered by Leaflet.
-Filter and navigate between the apartments easily using smooth transitions.
-Explore the app on various devices thanks to its responsive design.
-Contributing
-We welcome contributions to this project! If you'd like to help out, you can:
+     cd frontend
+     npm run dev
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes and commit them (git commit -am 'Add new feature').
-Push to your branch (git push origin feature/your-feature).
-Create a pull request.
-Please ensure that you follow the project's code style and run the linter before submitting a pull request.
-
-License
-Estate II is open-source and available under the MIT License.
+Open the App: Navigate to http://localhost:5173/ 
