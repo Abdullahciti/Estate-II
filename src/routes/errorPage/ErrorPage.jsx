@@ -1,4 +1,4 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 import "./errorPage.scss";
 import Navbar from "../../components/navbar/Navbar";
 const ErrorPage = () => {
@@ -13,6 +13,9 @@ const ErrorPage = () => {
       <div className="content">
         <h1>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
+        <p>
+          Go back to the <Link to="/">Home Page</Link>
+        </p>
         <p>
           <i>{error.statusText || error.message}</i>
         </p>

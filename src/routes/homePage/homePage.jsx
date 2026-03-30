@@ -15,25 +15,40 @@ function HomePage() {
           </p>
           <SearchBar />
           <div className="boxes">
+            {/* 1. سنوات الخبرة */}
             <div className="box">
               <h1>16+</h1>
               <h2>Years of Experience</h2>
             </div>
+
+            {/* 2. عدد العقارات المتاحة */}
             <div className="box">
-              <h1>200</h1>
-              <h2>Award Gained</h2>
-            </div>
-            <div className="box">
-              <h1>2000+</h1>
+              <h1>1200+</h1>
               <h2>Property Ready</h2>
             </div>
+
+            {/* 3. العملاء السعداء (رقم يعكس حجم الشركة) */}
             <div className="box">
-              <h1>150+</h1>
+              <h1>5000+</h1>
               <h2>Happy Clients</h2>
             </div>
+
+            {/* 4. الجوائز التي حصلت عليها الشركة */}
             <div className="box">
-              <h1>First Meeting</h1>
-              <h2>For Free</h2>
+              <h1>25+</h1>
+              <h2>Awards Gained</h2>
+            </div>
+
+            {/* 5. الوكلاء المعتمدين لدى المنصة */}
+            <div className="box">
+              <h1>80+</h1>
+              <h2>Certified Agents</h2>
+            </div>
+
+            {/* 6. عرض تسويقي قوي (بدل كلمة First Meeting) */}
+            <div className="box">
+              <h1>0%</h1>
+              <h2>Commission Fee*</h2>
             </div>
           </div>
         </div>

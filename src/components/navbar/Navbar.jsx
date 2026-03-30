@@ -2,15 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./navbar.scss";
 
-// Icons
-import { FaRegUser } from "react-icons/fa6";
-
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 
-function Navbar({ username }) {
-  const { isSignedIn, setIsSignedIn } = useAuth();
-
+function Navbar() {
   const menuRef = useRef(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,42 +38,10 @@ function Navbar({ username }) {
         <Link to={"/agents"}>Agents</Link> */}
       </div>
       <div className="right">
-        {isSignedIn && (
-          <div className="user">
-            <Link to="/profile" className="link">
-              <img
-                src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="profile pic"
-              />
-            </Link>
-            <span>{username}</span>
-            <Link to="/profile" className="profile">
-              <div className="notification">3</div>
-              <span>Profile</span>
-            </Link>
-          </div>
-        )}
-        {!isSignedIn && (
-          <>
-            <Link aria-label="sign-in button" to="/signin">
-              Sign in
-            </Link>
-            <Link
-              aria-label="sign-up button"
-              to={"/signup"}
-              className="register"
-            >
-              Sign up
-            </Link>
-          </>
-        )}
-
+        <Link to={"/properties"} className="link">
+          Properties
+        </Link>
         <div className="mobile">
-          {!isSignedIn && (
-            <Link className="user-icon" to={"/profile"}>
-              <FaRegUser />
-            </Link>
-          )}
           <div className="icons">
             <div
               className="menuIcon"

@@ -27,6 +27,9 @@
 
   .content {
     height: calc(100vh - 100px);
+    @include md {
+      height: fit-content;
+    }
   }
 }
 /* layout.scss */

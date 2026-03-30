@@ -1,6 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
+import "./properties.scss";
+import Card from "../../components/card/Card";
 
 function ListPage() {
   const [properties, setProperties] = useState([]);
@@ -20,13 +21,9 @@ function ListPage() {
   }, []);
 
   return (
-    <div>
+    <div className="properties">
       {properties.map((item) => (
-        <div key={item.id}>
-          <h2>{item.title}</h2>
-          <p>{item.price}</p>
-          <img src={item.image_url} width="200" />
-        </div>
+        <Card key={item.id} item={item} />
       ))}
     </div>
   );

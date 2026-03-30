@@ -39,6 +39,7 @@
     @include sm {
       flex-direction: column;
       border: none;
+      height: auto;
     }
 
     input {
